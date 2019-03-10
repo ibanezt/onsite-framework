@@ -1,0 +1,78 @@
+package OnSite;
+
+enum PUpdateType {
+	PUT_NUMBER = 0;
+	PUT_STRING = 1;
+	PUT_BOOL = 2;
+}
+
+enum PPacketType{
+	PPT_UPDATE = 0;
+	PPT_FILE = 1;
+	PPT_CONTROL = 2;
+}
+
+enum PControlType {
+	PCT_TEST = 0;
+	PCT_TEST2 = 1;
+}
+
+message PUpdateLuaString {
+	required string value = 1;
+}
+
+message PUpdateLuaBoolean {
+	required bool value = 1;
+} 
+
+message PUpdateLuaNumber {
+	required double value = 1;
+}
+
+message PUpdate {
+	required string name = 1;
+	required PUpdateType type = 2;
+	
+	optional PUpdateLuaNumber uNumber = 3;
+	optional PUpdateLuaString uString = 4;
+	optional PUpdateLuaBoolean uBoolean = 5;	
+}
+
+/* Only works with Protobuf v2.6.0+
+message PUpdate {
+	required string name = 1;
+	required PUpdateType type = 2;
+	oneof PUData {
+		PUpdateLuaNumber uNumber = 3;
+		PUpdateLuaString uString = 4;
+		PUpdateLuaBoolean uBoolean = 5;
+	}
+}
+*/
+
+message PFilePart {
+	required string filename = 1;
+	required bytes data = 2;
+}
+
+message PControl {
+	required PControlType type = 1;
+}
+
+message PPacket {
+	required PPacketType type = 1;
+	optional PUpdate uData = 2;
+	optional PFilePart fpData = 3;
+	optional PControl cData = 4;
+}
+
+/* Only works with Protobuf v2.6.0+
+message PPacket {
+	required PPacketType type = 1;
+	oneof PPacketData{
+		PUpdate uData = 2;
+		PFilePart fpData = 3;
+		PControl cData = 4;
+	}
+}
+*/

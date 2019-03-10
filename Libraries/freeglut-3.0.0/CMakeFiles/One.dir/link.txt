@@ -1,0 +1,1 @@
+/usr/bin/cc   -Wall -pedantic    CMakeFiles/One.dir/progs/demos/One/one.c.o  -o bin/One -rdynamic -lGLU -lGLESv2 -lGLESv1_CM -lEGL -lm -lSM -lICE -lX11 -lXext -lXxf86vm -lXi -lm lib/libfreeglut-gles.so.3.10.0 -lGLESv2 -lGLESv1_CM -lEGL -lm -lSM -lICE -lX11 -lXext -lXxf86vm -lXi -Wl,-rpath,/home/sysop/Dropbox/UCF/COP4331/Project/Libraries/freeglut-3.0.0/lib 

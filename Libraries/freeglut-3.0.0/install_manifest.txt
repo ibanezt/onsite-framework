@@ -1,0 +1,9 @@
+/usr/lib/x86_64-linux-gnu/libfreeglut-gles.so.3.10.0
+/usr/lib/x86_64-linux-gnu/libfreeglut-gles.so.3
+/usr/lib/x86_64-linux-gnu/libfreeglut-gles.so
+/usr/lib/x86_64-linux-gnu/libfreeglut-gles.a
+/usr/include/GL/freeglut.h
+/usr/include/GL/freeglut_ext.h
+/usr/include/GL/freeglut_std.h
+/usr/include/GL/glut.h
+/usr/lib/x86_64-linux-gnu/pkgconfig/freeglut-gles.pc

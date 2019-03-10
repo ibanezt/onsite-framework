@@ -1,0 +1,41 @@
+protoc -I=./Libraries/OnSite/ --cpp_out=./Libraries/OnSite/ ./Libraries/OnSite/PPacket.proto
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/PPacket.pb.cc -o ./Build/Object/PPacket.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/MessagePacket.cpp -o ./Build/Object/MessagePacket.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/NetworkData.cpp -o ./Build/Object/NetworkData.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/InputBuffer.cpp -o ./Build/Object/InputBuffer.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/ServerInputManager.cpp -o ./Build/Object/ServerInputManager.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/OutputBuffer.cpp -o ./Build/Object/OutputBuffer.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/ServerOutputManager.cpp -o ./Build/Object/ServerOutputManager.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/Texture.cpp -o ./Build/Object/Texture.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/ServerRenderManager.cpp -o ./Build/Object/ServerRenderManager.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/ServerNetworkManager.cpp -lpthread -o ./Build/Object/ServerNetworkManager.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/ServerLuaManager.cpp -o ./Build/Object/ServerLuaManager.o
+g++ -c -Wl,-no-as-needed -std=c++11 ./Libraries/OnSite/ServerGameEngine.cpp -o ./Build/Object/ServerGameEngine.o
+g++ -Wl,-no-as-needed -std=c++11 ./ScreenClient/screenclient.cpp ./Build/Object/InputBuffer.o ./Build/Object/MessagePacket.o ./Build/Object/NetworkData.o ./Build/Object/OutputBuffer.o ./Build/Object/PPacket.o ./Build/Object/ServerGameEngine.o ./Build/Object/ServerInputManager.o ./Build/Object/ServerLuaManager.o ./Build/Object/ServerNetworkManager.o ./Build/Object/ServerOutputManager.o ./Build/Object/ServerRenderManager.o ./Build/Object/Texture.o -llua -lSDL2 -lSDL2_image -lprotobuf -lpthread -ldl -o ./Build/luatest
+./Build/Object/PPacket.o: In function `OnSite::protobuf_AssignDesc_PPacket_2eproto()':
+PPacket.pb.cc:(.text+0x2da): undefined reference to `google::protobuf::internal::GeneratedMessageReflection::GeneratedMessageReflection(google::protobuf::Descriptor const*, google::protobuf::Message const*, int const*, int, int, int, void const*, int, google::protobuf::DescriptorPool const*, google::protobuf::MessageFactory*, int)'
+PPacket.pb.cc:(.text+0x46b): undefined reference to `google::protobuf::internal::GeneratedMessageReflection::GeneratedMessageReflection(google::protobuf::Descriptor const*, google::protobuf::Message const*, int const*, int, int, int, void const*, int, google::protobuf::DescriptorPool const*, google::protobuf::MessageFactory*, int)'
+./Build/Object/PPacket.o: In function `OnSite::PUpdateLuaString::SerializeWithCachedSizes(google::protobuf::io::CodedOutputStream*) const':
+PPacket.pb.cc:(.text+0x1280): undefined reference to `google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(int, std::string const&, google::protobuf::io::CodedOutputStream*)'
+./Build/Object/PPacket.o: In function `OnSite::PUpdateLuaString::SerializeWithCachedSizesToArray(unsigned char*) const':
+PPacket.pb.cc:(.text+0x13e3): undefined reference to `google::protobuf::io::CodedOutputStream::WriteStringWithSizeToArray(std::string const&, unsigned char*)'
+./Build/Object/PPacket.o: In function `OnSite::PUpdate::SerializeWithCachedSizes(google::protobuf::io::CodedOutputStream*) const':
+PPacket.pb.cc:(.text+0x3bb2): undefined reference to `google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(int, std::string const&, google::protobuf::io::CodedOutputStream*)'
+./Build/Object/PPacket.o: In function `OnSite::PUpdate::SerializeWithCachedSizesToArray(unsigned char*) const':
+PPacket.pb.cc:(.text+0x3ddf): undefined reference to `google::protobuf::io::CodedOutputStream::WriteStringWithSizeToArray(std::string const&, unsigned char*)'
+./Build/Object/PPacket.o: In function `OnSite::PFilePart::SerializeWithCachedSizes(google::protobuf::io::CodedOutputStream*) const':
+PPacket.pb.cc:(.text+0x4ed8): undefined reference to `google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(int, std::string const&, google::protobuf::io::CodedOutputStream*)'
+PPacket.pb.cc:(.text+0x4f05): undefined reference to `google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(int, std::string const&, google::protobuf::io::CodedOutputStream*)'
+./Build/Object/PPacket.o: In function `OnSite::PFilePart::SerializeWithCachedSizesToArray(unsigned char*) const':
+PPacket.pb.cc:(.text+0x5067): undefined reference to `google::protobuf::io::CodedOutputStream::WriteStringWithSizeToArray(std::string const&, unsigned char*)'
+PPacket.pb.cc:(.text+0x5141): undefined reference to `google::protobuf::io::CodedOutputStream::WriteStringWithSizeToArray(std::string const&, unsigned char*)'
+./Build/Object/PPacket.o: In function `google::protobuf::internal::GetEmptyStringAlreadyInited()':
+PPacket.pb.cc:(.text._ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedEv[_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedEv]+0x7): undefined reference to `google::protobuf::internal::empty_string_'
+PPacket.pb.cc:(.text._ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedEv[_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedEv]+0x2c): undefined reference to `google::protobuf::internal::empty_string_'
+./Build/Object/PPacket.o: In function `google::protobuf::internal::GetEmptyString()':
+PPacket.pb.cc:(.text._ZN6google8protobuf8internal14GetEmptyStringEv[_ZN6google8protobuf8internal14GetEmptyStringEv]+0x5): undefined reference to `google::protobuf::internal::InitEmptyString()'
+PPacket.pb.cc:(.text._ZN6google8protobuf8internal14GetEmptyStringEv[_ZN6google8protobuf8internal14GetEmptyStringEv]+0xa): undefined reference to `google::protobuf::internal::empty_string_once_init_'
+./Build/Object/PPacket.o: In function `google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(char const*, int, google::protobuf::internal::WireFormat::Operation, char const*)':
+PPacket.pb.cc:(.text._ZN6google8protobuf8internal10WireFormat26VerifyUTF8StringNamedFieldEPKciNS2_9OperationES4_[_ZN6google8protobuf8internal10WireFormat26VerifyUTF8StringNamedFieldEPKciNS2_9OperationES4_]+0x28): undefined reference to `google::protobuf::internal::WireFormat::VerifyUTF8StringFallback(char const*, int, google::protobuf::internal::WireFormat::Operation, char const*)'
+collect2: error: ld returned 1 exit status
+make: *** [screenclient] Error 1

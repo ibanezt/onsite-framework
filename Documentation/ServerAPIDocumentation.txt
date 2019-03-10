@@ -1,0 +1,62 @@
+Onsite Framework Server API:
+
+All methods and objects relating to this API is stored in the Lua table OnSite.
+
+OnSite.Server.Variables:
+	A table in which variables the server should be aware of are contained.
+	
+	OnSite.Server.Variables.Sync:
+		A sub table in which any changes made are sent via the network to all
+		connected Clients.
+
+
+Client: 
+	A connected device.
+	
+	Client.Variables: a table with two sub tables:
+		Client.Variables.Local: 
+			Variables stored on the server which is not synced to the
+			specific client.
+		Client.Variables.Sync:
+			Variables in which a change is synced to both the server and the
+			device.
+	Client.ID: the id that the client was given when the connection was created.
+
+	OnSite.Server.addClient(id):
+		Creates the connection? with a new device. The id is set on the server 
+		side, and is valid only for the connection's duration.
+
+	OnSite.Server.getClientByID(id):
+		Retrieves the client with the associated id.
+	
+	OnSite.Server.Clients:
+		The table which contains all connected Clients.
+
+
+OnSite.Server.newTextureMap(x, y, width, height, rotation): 
+	Creates and returns a new texture map, which can be used in a gameObject.
+	Texture atlas is textures.png
+	Transparency color is 00,FF,FF
+	
+GameObject:
+	Any object that will be put on the screen.
+	
+	GameObject.Position: Both X and Y are relative to the top left corner.
+		GameObject.Position.X: 
+			X position of the object.
+		GameObject.Position.Y: 
+			Y position of the object.
+	
+	GameObject.TextureMap: 
+		The TextureMap with which the object renders.
+		
+	OnSite.Server.newGameObject()
+			Creates and returns a default gameObject.
+	
+	OnSite.Server.GameObjects:
+		The table in which all GameObjects are stored.
+		
+OnSite.Server.GameLoop:
+	The function that is run.
+	The order that the loop runs is: syncing sync variables, GameLoop, prepare buffer, wait, render
+	The loop waits so that the rendering is done AT MOST at 30 FPS.

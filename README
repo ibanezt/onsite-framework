@@ -1,0 +1,85 @@
+/*Prerequisites*/
+
+To install Build Essentials (needed for Building anything):
+sudo apt-get install build-essential
+
+To install readline (needed for Lua 5.1.5):
+sudo apt-get install libreadline-dev
+
+To install libncurses (needed for Lua 5.1.5):
+sudo apt-get install libncurses5-dev
+
+To install Lua 5.1:
+cd ./Libraries/lua-5.1.5/
+make clean
+make linux
+sudo make linux install
+
+To install OpenJDK (Needed for Android Studio):
+sudo apt-get install default-jdk
+
+To Install OracleJDK (Recommended over OpenJDK for Android Studio):
+//Download JDK from Oracle
+sudo tar -xzvf jdk.tar.gz -C /usr/lib/jvm
+//Place following in ~/.bashrc
+export STUDIO_JDK=/usr/lib/jvm
+
+To Install Git (Source Control):
+sudo apt-get install git
+
+To Install Vim (Text Editor):
+sudo apt-get install vim
+
+To install SDL:
+sudo apt-get install libsdl2-dev libsdl2-image-dev
+
+Vim Corrections (Nice but Not Necessary):
+:set tabstop=4
+:set background=dark
+:set number
+----------------------------------------
+Libraries no longer in use
+
+To install Intel Thread Building Blocks:
+sudo apt-get install libtbb-dev
+
+To install Boost Libraries:
+sudo apt-get install libboost-all-dev
+
+To install Protocol Buffers 2.6.1:
+cd ./Libraries/protobuf-2.6.1/
+make clean
+./configure --prefix=/usr
+make
+make check
+sudo make install
+
+TO Install cmake (Needed for freeglut):
+sudo apt-get install cmake
+
+To Install OpenGL (Needed for freeglut):
+sudo apt-get install mesa-common-dev libgl1-mesa-dev mesa-common-dev libglu1-mesa-dev
+
+To Install OpenGLES 1 (Needed for freeglut):
+sudo apt-get install libgles1-mesa libgles1-mesa-dev
+
+To Install OpenGLES 2 (Needed for freeglut):
+sudo apt-get install ligles2-mesa libgles2-mesa-dev
+
+To Install X11 Toolkit (Needed for freeglut):
+sudo apt-get install libxt-dev libxext-dev libxi-dev
+
+To install freeglut 3:
+cd ./Libraries/freeglut3.0.0/
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DFREEGLUT_GLES:BOOL=ON -DFREEGLUT_BUILD_DEMOS:BOOL=OFF ./
+make all
+sudo make install
+
+To install SOIL:
+cd ./Libraries/soil/
+cmake ./
+make
+sudo make install
+
+To install GLM:
+sudo apt-get install libglm-dev

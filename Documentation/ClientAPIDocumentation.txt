@@ -1,0 +1,36 @@
+Onsite Framework Client API:
+
+All methods and objects relating to this API is stored in the Lua table OnSite.Client
+
+OnSite.Client.Variables:
+	A table in which variables the client should be aware of are contained.
+	
+	OnSite.Client.Variables.Sync:
+		A sub table in which any changes made are sent via the network to the
+		server.
+
+
+OnSite.Client.newTextureMap(x, y, width, height, rotation): 
+	Creates and returns a new texture map, which can be used in a gameObject.
+	
+	
+GameObject:
+	Any object that will be put on the screen.
+	
+	GameObject.Position: Both X and Y are relative to the top left corner.
+		GameObject.Position.X: 
+			X position of the object.
+		GameObject.Position.Y: 
+			Y position of the object.
+	
+	GameObject.TextureMap: 
+		The TextureMap with which the object renders.
+		
+	OnSite.Client.newGameObject()
+			Creates and returns a default gameObject.
+	
+	OnSite.Client.GameObjects:
+		The table in which all GameObjects are stored.
+		
+	OnSite.Client.Screen.isPressed()
+		Boolean function that returns true if the screen is being pressed.

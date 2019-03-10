@@ -1,0 +1,4 @@
+TBB_INSTALL_DIR=$HOME/tbbsrc
+TBB_INCLUDE=$TBB_INSTALL_DIR/include
+TBB_LIBRARY_RELEASE=$TBB_INSTALL_DIR/build/linux_ia32_gcc_cc4.8_libc2.19_kernel3.13.0_release
+

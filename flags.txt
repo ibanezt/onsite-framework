@@ -1,0 +1,19 @@
+Compiler Flags
+
+Requirements:
+g++ 4.8
+Lua 5.1
+Intel Thread Building Blocks
+
+FLAGS:
+C++11 support:
+-std=c++11
+-Wl,--no-as-needed
+Dynamic Linking:
+-ldl
+Lua:
+-llua
+Theading:
+-lpthread
+Intel Thread Building Blocks:
+-ltbb

@@ -1,0 +1,31 @@
+/**
+ *	ServerRenderManager Class Definition
+*	Terrell Ibanez
+**/
+
+//ServerRenderManager Class Declaration
+#include "ServerRenderManager.hpp"
+
+//C++ Libraries
+
+//SDL Libaries
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+
+OnSite::ServerRenderManager::ServerRenderManager() {
+
+}
+
+
+OnSite::ServerRenderManager::~ServerRenderManager() {
+
+}
+
+void OnSite::ServerRenderManager::render() {
+
+
+}
+
+void OnSite::ServerRenderManager::update() {
+
+}
